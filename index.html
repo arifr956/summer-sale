@@ -15,12 +15,12 @@
 
     <style>
         .font-work {
-            font-family: 'work-sans', sans-serif;
+            font-family: 'Work Sans', sans-serif;
         }
     </style>
 </head>
 
-<body>
+<body class="font-work">
     <header>
         <section class="w-full bg-[#F9F6E2;] lg:flex">
             <div class="text-center my-auto flex-1">
@@ -166,23 +166,48 @@
         </div>
 
     </div>
+    <!-- COUPON AND MAKE PURCHASE -->
     <div class=" m-2 lg: m-5">
         <!-- coupon -->
-        <div class="m-5 p-5"> 
+        <div class="m-5 p-10 rounded-lg bg-white"> 
             <h3 class="text-3xl font-medium">Have coupon?</h3>
-            <div class="flex items-center space-x-2">
-                <input type="text" class="border border-gray-300 px-3 py-2 rounded-lg focus:outline-none focus:border-blue-500 mr-[-2]" placeholder="coupon Code">
-                <button class="bg-[#E527B2] text-white px-4 py-2 rounded-lg m-0">Apply</button>
+            <div class="flex items-center">
+                <input id="inputField" type="text" class="border border-gray-300 px-3 py-2 rounded-l-md focus:outline-none focus:border-blue-500 m-0" placeholder="Coupon Code">
+                <button id="apply-btn" class="bg-[#11111180] text-white px-4 py-2 rounded-r-md --tw-space-x-reverse: 0" disabled>Apply</button>
               </div>
+              
+        </div>
+        <div class="m-5 p-10 rounded-lg bg-white"> 
+            <ul>
+
+            </ul>
+            <h2 class="text-2xl font-semibold">Total Price: <span class="text-[#11111180] font-medium">00.00</span><span class="text-[#11111180] font-medium">TK</span></h2>
+            <h2 class="text-2xl font-semibold my-3">Discount: <span class="text-[#11111180] font-medium">00.00</span><span class="text-[#11111180] font-medium">TK</span></h2>
+            <h2 class="text-2xl font-semibold my-3">Total: <span class="text-[#11111180] font-medium">00.00</span><span class="text-[#11111180] font-medium">TK</span></h2>
+            <button class="bg-[#E527B2]  text-3xl text-white px-4 py-2 mt-3 rounded-lg --tw-space-x-reverse: 0">Make Purchase</button>
               
         </div>
     </div>
 
 </section>
     </main>
-    <footer>
+    <script>
+        const inputField = document.getElementById('inputField');
+        const submitButton = document.getElementById('apply-btn');
 
-    </footer>
+        inputField.addEventListener('input', function () {
+            const inputText = inputField.value.trim();
+
+            if (inputText === 'SELL200') {
+                submitButton.removeAttribute('disabled');
+                submitButton.classList.add("bg-[#E527B2]");
+            } else {
+                submitButton.setAttribute('disabled', 'true');
+                submitButton.classList.remove("bg-[#E527B2]");
+                
+            }
+        });
+    </script>
 
 </body>
 
